@@ -1,71 +1,209 @@
-.container{
-    max-width: 100%;
-    
-    margin: 0 auto;
-    padding: 50px;
-    background-color: #817575;
-    box-shadow:0px 2px 5px rgba(0,0,0,0.2) ;
-    border-radius: 5px;
-    margin-top: 3%;
-    margin-left: 500px;
-}
-
-h1{
-    font-size: 30px;
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body Styles */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  /* Container Styles */
+  .container {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Styles */
+  h1 {
+    font-size: 32px;
     text-align: center;
-    margin-top: 30px;
-}
-
-.input-container{
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Input and Button Styles */
+  .input-container {
     display: flex;
     gap: 10px;
-    margin-bottom: 30px;
-}
-
-input{
+    margin-bottom: 20px;
+  }
+  
+  input {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     font-size: 18px;
-    border: 1px solid #fff;
+    border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.add-button{
-    padding: 10px;
+    outline: none;
+  }
+  
+  input:focus {
+    border-color: #4d90fe;
+  }
+  
+  .add-btn {
+    padding: 12px;
     font-size: 18px;
-    color: #fff;
-    background-color: aqua;
+    color: white;
+    background-color: #4caf50;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.25 ease-in-out;
-}
-
-.reminder-list{
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Reminder List Styles */
+  .reminder-list {
     list-style-type: none;
-    margin: 0;
     padding: 0;
-
-    }
-
-.reminder-list li{
+  }
+  
+  .reminder-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #473d3d;
-    border:1px solid #ccc ;
-    padding: 10px;
+    background-color: #3a1d1d;
+    border: 1px solid #0f0e0e;
+    padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-}
-
-.delete-btn{
-    padding: 5px 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .delete-btn {
+    padding: 8px 12px;
     font-size: 16px;
-    color: #181717;
-    background-color: brown;
+    color: white;
+    background-color: #f44336;
     border: none;
-    border-radius: 5px ;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e53935;
+  }
+  
+  /* Empty Reminder Message */
+  p {
+    text-align: center;
+    color: #666;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* Mobile Devices (up to 480px) */
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+      margin-top: 20px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    .input-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    input, .add-btn {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .reminder-list li {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .delete-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Tablet Devices (481px - 768px) */
+  @media (max-width: 768px) and (min-width: 481px) {
+    .container {
+      padding: 25px;
+      margin-top: 30px;
+    }
+  
+    h1 {
+      font-size: 30px;
+    }
+  
+    .input-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    input, .add-btn {
+      width: 100%;
+      font-size: 17px;
+    }
+  
+    .reminder-list li {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .delete-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Larger Screens (Desktop and Tablets above 768px) */
+  @media (min-width: 769px) {
+    .container {
+      padding: 30px;
+      margin-top: 50px;
+    }
+  
+    h1 {
+      font-size: 32px;
+    }
+  
+    .input-container {
+      flex-direction: row;
+      gap: 15px;
+    }
+  
+    input {
+      flex: 1;
+    }
+  
+    .add-btn {
+      flex: 0;
+    }
+  
+    .reminder-list li {
+      flex-direction: row;
+      text-align: left;
+    }
+  
+    .delete-btn {
+      margin-left: 15px;
+    }
+  }
+

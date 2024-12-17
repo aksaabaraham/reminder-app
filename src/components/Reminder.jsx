@@ -1,69 +1,60 @@
-import React, {useState} from 'react'
-import './Reminder.css'
+import React, { useState } from "react";
+import "./Reminder.css";
 
 function Reminder() {
+  const [reminder, setReminder] = useState([]);
+  const [newReminder, setNewReminder] = useState("");
 
-    const [reminder, setReminder] = useState([]);
-    const [newReminder, setNewReminder] = useState("");
+  const handleInputChange = (event) => {
+    setNewReminder(event.target.value);
+  };
 
-
-
-    const handleInputChange=()=>{
-    setNewReminder(event.target.value)
-
+  const handleAddReminder = () => {
+    if (newReminder.trim()) {
+      setReminder([...reminder, newReminder]);
+      setNewReminder("");
     }
+  };
 
-    const handleAddReminder=()=>{
-        if(newReminder.trim()){
-            setReminder([...reminder,newReminder])
-            setNewReminder("")
-        }
-    }
+  const handleDeleteReminder = (index) => {
+    setReminder(reminder.filter((item, itemIndex) => itemIndex !== index));
+  };
 
-
-
-    const handleDeleteReminder=(index)=>{
-        setReminder(reminder.filter((item,itemIndex)=>itemIndex != index))
-
-    }
   return (
-    <div className='container'>
+    <div className="container">
+      <h1>Reminder App</h1>
 
-<h1>
-    Reminder App</h1>
-
-    <div className='input-container'>
-
-
-        <input type="text"
-        value={newReminder}
-        placeholder='Enter a Reminder'
-        onChange={handleInputChange}
-
+      <div className="input-container">
+        <input
+          type="text"
+          value={newReminder}
+          placeholder="Enter a Reminder"
+          onChange={handleInputChange}
         />
-        <button className='add-btn' onClick={handleAddReminder}>Add Reminder</button>
-    </div>
+        <button className="add-btn" onClick={handleAddReminder}>
+          Add Reminder
+        </button>
+      </div>
 
-
-{
-
-    reminder.length >0? (
-    <ul className='reminder-list'>
-    {
-        reminder.map((reminder,index)=>(
+      {reminder.length > 0 ? (
+        <ul className="reminder-list">
+          {reminder.map((reminder, index) => (
             <li key={index}>
-                {reminder}
-                <button onClick={()=>handleDeleteReminder (index)} className='delete-btn'>Delete</button>
+              {reminder}
+              <button
+                onClick={() => handleDeleteReminder(index)}
+                className="delete-btn"
+              >
+                Delete
+              </button>
             </li>
-        ))
-    }
-    
-    </ul>):
-    <p> No Reminders Found </p>
-    
-}
+          ))}
+        </ul>
+      ) : (
+        <p>No Reminders Found</p>
+      )}
     </div>
-  )
+  );
 }
 
-export default Reminder
+export default Reminder;
